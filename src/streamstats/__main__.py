@@ -41,7 +41,7 @@ def main() -> int:
     )
     analyze_parser.add_argument("inputs", nargs="+")
     analyze_parser.add_argument("--format", required=True)
-    analyze_parser.add_argument("--output", required=True)
+    analyze_parser.add_argument("--output", default="report.json")
     analyze_parser.add_argument("--skip-invalid", action="store_true")
 
     args = parser.parse_args()

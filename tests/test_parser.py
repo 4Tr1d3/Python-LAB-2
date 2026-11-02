@@ -128,7 +128,7 @@ def test_invalid_csv_event_raises_error(tmp_path):
 
 def test_unicode_is_preserved(tmp_path):
     path = tmp_path / "unicode.jsonl"
-    event = make_event("Привет, мир! Робототехника 🤖")
+    event = make_event("Hello Привет Hola Bonjour Hallo Ciao Olá مرحبا こんにちは 안녕하세요 你好 🤖")
     path.write_text(
         json.dumps(event, ensure_ascii=False) + "\n",
         encoding="utf-8",
@@ -138,4 +138,4 @@ def test_unicode_is_preserved(tmp_path):
         read_jsonl(path, skip_invalid=False, stats=create_stats())
     )
 
-    assert result[0]["message"] == "Привет, мир! Робототехника 🤖"
+    assert result[0]["message"] == "Hello Привет Hola Bonjour Hallo Ciao Olá مرحبا こんにちは 안녕하세요 你好 🤖"

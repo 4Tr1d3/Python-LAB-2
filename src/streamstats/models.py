@@ -7,7 +7,7 @@ def validate_event(event: dict) -> None:
     """ПРОВЕРКА СУЩЕСТВОВАНИЕ СТРОК"""
     if not isinstance(event, dict):
         raise InvalidEventError(
-            "Событие должно быть JSON-объектом"
+            "Событие должно быть словарем"
         )
 
     required_fields = {"timestamp", "level", "source", "message"}
